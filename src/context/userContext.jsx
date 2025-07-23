@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
-export const UserDataContext = createContext();;
-export default  function UserContext({children}) {
+export const UserDataContext = createContext();
+ const UserContext = ({children}) => {
  
   const [user, setUser] = useState({
     fullName: {
@@ -13,9 +13,11 @@ export default  function UserContext({children}) {
   });
   return (
     <div>
-      <UserDataContext.Provider value={{user}}>
+      <UserDataContext.Provider value={{user , setUser}}>
         {children}
       </UserDataContext.Provider>
     </div>
   );
 } 
+
+export default UserContext;
